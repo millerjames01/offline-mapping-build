@@ -10,7 +10,7 @@ function loadDatabase() {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
 		fs.root.getDirectory("databases", {create: true}, function(entry) {
 			var ft = new FileTransfer();
-			ft.download("file:///android_asset/www/databses/Database.db", // the filesystem uri you mentioned
+			ft.download("file:///android_asset/www/databases/Database.db", // the filesystem uri you mentioned
 			"file:///data/data/com.phonegap.offlinemapping/databases/Database.db", function(entry) {
 				// do what you want with the entry here
 				buildMap();
