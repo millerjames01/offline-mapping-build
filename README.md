@@ -20,9 +20,9 @@ are not yet supported, more on that below). Either
 start an emulator or plug-in your Android device and wait
 for it to be finished with start up processes.
 Then type
-`
-adb install /path/to/OfflineMapping-debug.apk
-`
+
+    adb install /path/to/OfflineMapping-debug.apk
+
 After installation, and a few seconds of loading time,
 a map of Yale's campus should appear on the screen
 
