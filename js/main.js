@@ -11,7 +11,7 @@ function loadDatabase() {
 		fs.root.getDirectory("databases", {create: true}, function(entry) {
 			var ft = new FileTransfer();
 			ft.download("file:///android_asset/www/databases/Database.db", // the filesystem uri you mentioned
-			dir.fullPath + "/databases/Database.db", function(entry) {
+			entry.fullPath + "/databases/Database.db", function(entry) {
 				// do what you want with the entry here
 				buildMap();
 			}, function(error) {
