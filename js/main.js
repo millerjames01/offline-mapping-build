@@ -4,10 +4,6 @@ function onBodyLoad() {
 
 function go() {
 	$('#button1').click(loadDatabase);
-	$('#map').toggle();
-	$('.modal .close').click(function () {
-		$('#map').toggle();
-	});
 }
 
 function loadDatabase() {
@@ -24,7 +20,6 @@ function loadDatabase() {
 				$('#button1').html("Display");
 				$('#button1').click(function () {
 				  $('#mapModal').modal('toggle');
-				  $('#map').toggle();
 				  buildMap();
 				});
 			}, function(error) {
