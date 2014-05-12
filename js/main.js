@@ -13,11 +13,11 @@ function loadDatabase() {
 			ft.download("https://www.dropbox.com/s/s6pxs03krkzzvba/Database.db", // the filesystem uri you mentioned
 			entry.toURI() + "/Database.db", function(entry) {
 				// do what you want with the entry here
-				$('#button1').html("Display")
+				$('#button1').html("Display");
 				$('#button1').click(function () {
 				  $('#mapModal').modal('toggle');
 				  buildMap();
-				)
+				});
 			}, function(error) {
 				$('#information').html(
 				  alertHtml("Error in dowloading the file from" + error.source + 
