@@ -24,13 +24,34 @@ under the License.
 		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 		<link rel="stylesheet" type="text/css" href="css/leaflet.css" />
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/leaflet.js"></script>
 		<script type="text/javascript" src="js/TileLayer.MBTiles.js"></script>
 		<title>Offline Mapping</title>
 	</head>
 	<body onload="onBodyLoad()">
 		<h1>Offline Mapping Demo</h1>
+		<div id="information"></div>
+		<button class="btn" id="button1">Download</button>
+		<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Yale Map</h4>
+					</div>
+					<div class="modal-body">
+						<div id="map"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">Done</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
 		<div id="map"></div>
 		<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 	</body>

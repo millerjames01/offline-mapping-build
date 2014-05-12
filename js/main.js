@@ -3,24 +3,32 @@ function onBodyLoad() {
 }
 
 function go() {
-	loadDatabase();
+	$('#button1').onclick(loadDatabase);
 }
 
 function loadDatabase() {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
 		fs.root.getDirectory("databases", {create: true}, function(entry) {
 			var ft = new FileTransfer();
-			ft.download("file:///android_asset/www/databases/Database.db", // the filesystem uri you mentioned
-			entry.toURI() + "/databases/Database.db", function(entry) {
+			ft.download("https://www.dropbox.com/s/s6pxs03krkzzvba/Database.db", // the filesystem uri you mentioned
+			entry.toURI() + "/Database.db", function(entry) {
 				// do what you want with the entry here
-				buildMap();
+				$('#button1').html("Display")
+				$('#button1').click(function () {
+				  $('#mapModal').modal('toggle');
+				  buildMap();
+				)
 			}, function(error) {
+				$('#information').html(
+				  alertHtml("Error in dowloading the file from" + error.source + 
+							"error target" + error.target + ": " + error.code)
+				);
 				console.log("error source " + error.source);
 				console.log("error target " + error.target);
 				console.log("error code " + error.code);
 			}, false, null);
 		}, function() {
-			alert("file create error");
+			$('#information').html(alertHtml("Couldn't create a databases directory"));
 		});
 	}, null);
 }
@@ -53,4 +61,10 @@ L.marker([51.5, -0.09]).addTo(map)
 	}, db);
 	
 	map.addLayer(lyr);
+}
+
+function alertHtml(content) {
+	return '<div class="alert alert-danger alert-dismissable">' +
+	'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + 
+	'<strong>Warning!</strong>' + content + '</div>';
 }
