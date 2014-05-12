@@ -4,7 +4,10 @@ function onBodyLoad() {
 
 function go() {
 	$('#button1').click(loadDatabase);
-	$('#mapModal').modal("hide");
+	$('#map').toggle();
+	$('.modal .close').click(function () {
+		$('#map').toggle();
+	})
 }
 
 function loadDatabase() {
@@ -14,9 +17,13 @@ function loadDatabase() {
 			ft.download("https://www.dropbox.com/s/s6pxs03krkzzvba/Database.db", // the filesystem uri you mentioned
 			entry.toURI() + "/Database.db", function(entry) {
 				// do what you want with the entry here
+				$('#information').html(
+				  alertHtml("Successfully downloaded the file to " + entry.toURI());	
+				);
 				$('#button1').html("Display");
 				$('#button1').click(function () {
 				  $('#mapModal').modal('toggle');
+				  $('#map').toggle();
 				  buildMap();
 				});
 			}, function(error) {
