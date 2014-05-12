@@ -7,7 +7,7 @@ function go() {
 	$('#map').toggle();
 	$('.modal .close').click(function () {
 		$('#map').toggle();
-	})
+	});
 }
 
 function loadDatabase() {
