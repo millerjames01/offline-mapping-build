@@ -14,11 +14,11 @@ function loadDatabase() {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
 		fs.root.getDirectory("databases", {create: true}, function(entry) {
 			var ft = new FileTransfer();
-			ft.download("https://www.dropbox.com/s/s6pxs03krkzzvba/Database.db", // the filesystem uri you mentioned
-			"file:///data/data/com.phonegap.offlinemapping/databases/Database.db", function(entry) {
+			ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
+			entry.toURL() + "/Database.db", function(entry) {
 				// do what you want with the entry here
 				$('#information').html(
-				  alertHtml("Successfully downloaded the file to " + "file:///data/data/com.phonegap.offlinemapping/databases/Database.db")	
+				  alertHtml("Successfully downloaded the file to " + entry.toURL() + "/Database.db")	
 				);
 				$('#button1').html("Display");
 				$('#button1').click(function () {
