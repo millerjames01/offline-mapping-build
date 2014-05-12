@@ -4,6 +4,7 @@ function onBodyLoad() {
 
 function go() {
 	$('#button1').onclick(loadDatabase);
+	$('#mapModal').modal("hide");
 }
 
 function loadDatabase() {
