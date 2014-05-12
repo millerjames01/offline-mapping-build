@@ -68,7 +68,7 @@ L.marker([51.5, -0.09]).addTo(map)
 }
 
 function alertHtml(content) {
-	return '<div class="alert alert-primary alert-dismissable">' +
+	return '<div class="alert alert-info alert-dismissable">' +
 	'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + 
 	'<strong>Info</strong>' + content + '</div>';
 }
