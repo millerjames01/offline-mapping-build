@@ -15,10 +15,10 @@ function loadDatabase() {
 		fs.root.getDirectory("databases", {create: true}, function(entry) {
 			var ft = new FileTransfer();
 			ft.download("https://www.dropbox.com/s/s6pxs03krkzzvba/Database.db", // the filesystem uri you mentioned
-			entry.toURI() + "/Database.db", function(entry) {
+			"file:///data/data/com.phonegap.offlinemapping/databases/Database.db", function(entry) {
 				// do what you want with the entry here
 				$('#information').html(
-				  alertHtml("Successfully downloaded the file to " + entry.toURI())	
+				  alertHtml("Successfully downloaded the file to " + "file:///data/data/com.phonegap.offlinemapping/databases/Database.db")	
 				);
 				$('#button1').html("Display");
 				$('#button1').click(function () {
@@ -72,7 +72,7 @@ L.marker([51.5, -0.09]).addTo(map)
 }
 
 function alertHtml(content) {
-	return '<div class="alert alert-danger alert-dismissable">' +
+	return '<div class="alert alert-primary alert-dismissable">' +
 	'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + 
-	'<strong>Warning!</strong>' + content + '</div>';
+	'<strong>Info</strong>' + content + '</div>';
 }
