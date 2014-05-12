@@ -3,7 +3,7 @@ function onBodyLoad() {
 }
 
 function go() {
-	$('#button1').onclick(loadDatabase);
+	$('#button1').click(loadDatabase);
 	$('#mapModal').modal("hide");
 }
 
