@@ -20,6 +20,7 @@ function loadDatabase() {
 				$('#information').html(
 				  alertHtml("Successfully downloaded the file to " + entry.toURL() + "/Database.db")	
 				);
+				$('#button1').unbind();
 				$('#button1').html("Display");
 				$('#button1').click(function () {
 				  $('#mapModal').modal('toggle');
