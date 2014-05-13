@@ -19,7 +19,7 @@ function loadDatabase() {
 				$('#button1').unbind();
 				$('#button1').html("Display");
 				$('#button1').click(function () {
-				  $('#mapModal').modal('toggle');
+				  $('#map').toggle();
 				  buildMap();
 				});
 			}, function(error) {
