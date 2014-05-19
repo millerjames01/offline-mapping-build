@@ -12,7 +12,7 @@ function loadDatabase() {
 		fs.root.getDirectory("../..", {/*create: true*/}, function(entry) {
 			var ft = new FileTransfer();
 			ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
-			"data/data/com.phonegap.offlinemapping/databases/Database.db", function(entry) {
+			entry.toURI() + "data/data/com.phonegap.offlinemapping/databases/Database.db", function(entry) {
 				// do what you want with the entry here
 				$('#information').html(
 				  alertHtml("Successfully downloaded the file to " + "/data/data")	
