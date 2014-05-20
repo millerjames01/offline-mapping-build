@@ -35,10 +35,10 @@ function loadDatabase() {
 				console.log("error target " + error.target);
 				console.log("error code " + error.code);
 			}, false, null);
-          */
+          
 		}, function() {
 			$('#information').html(alertHtml("Couldn't create a databases directory"));
-		});
+		});*/
 	}, null);
 }
 
