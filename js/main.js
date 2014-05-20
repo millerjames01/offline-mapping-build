@@ -41,51 +41,6 @@ function onError() {
 
 function loadDatabase() {
     window.resolveLocalFileSystemURI("file:///data/data/com.phonegap.offlinemapping", onSuccess, onError);
-
-  /*
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {  
-      /*
-        var from = "https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530";
-        var to = "/data/data/com.phonegap.offlinemapping/databases/Database.db";
-        window.plugins.FileOperations.copyFile(from, to, 
-            function() {
-                $('#button1').unbind();
-                $('#button1').html("Display");
-                $('#button1').click(function () {
-                  $('#map').toggle();
-                  buildMap();
-                });
-            }, function(){console.log('fail')});
-      */
-        /*
-		fs.root.getDirectory("../..", {create: true}, function(entry) {
-			var ft = new FileTransfer();
-			ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
-			entry.toURI() + "data/data/com.phonegap.offlinemapping/databases/Database.db", function(entry) {
-				// do what you want with the entry here
-				$('#information').html(
-				  alertHtml("Successfully downloaded the file to " + "/data/data")	
-				);
-				$('#button1').unbind();
-				$('#button1').html("Display");
-				$('#button1').click(function () {
-				  $('#map').toggle();
-				  buildMap();
-				});
-			}, function(error) {
-				$('#information').html(
-				  alertHtml("Error in dowloading the file from" + error.source + 
-							"error target" + error.target + ": " + error.code)
-				);
-				console.log("error source " + error.source);
-				console.log("error target " + error.target);
-				console.log("error code " + error.code);
-			}, false, null);
-          
-		}, function() {
-			$('#information').html(alertHtml("Couldn't create a databases directory"));
-		});*/
-	}, null);*/
 }
 
 function buildMap() {
