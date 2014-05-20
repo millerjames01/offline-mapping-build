@@ -10,7 +10,15 @@ function loadDatabase() {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
         var from = "https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530";
         var to = "/data/data/com.phonegap.offlinemapping/databases/Database.db";
-        window.plugins.FileOperations.copyFile(from, to, function(){console.log('success')}, function(){console.log('fail')});
+        window.plugins.FileOperations.copyFile(from, to, 
+            function() {
+                $('#button1').unbind();
+                $('#button1').html("Display");
+                $('#button1').click(function () {
+                  $('#map').toggle();
+                  buildMap();
+                });
+            }, function(){console.log('fail')});
         /*
 		fs.root.getDirectory("../..", {create: true}, function(entry) {
 			var ft = new FileTransfer();
