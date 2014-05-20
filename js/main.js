@@ -13,7 +13,7 @@ function onSuccess(dirEntry) {
             dataEntry.toURI() + "/Database.db", function(entry) {
             // do what you want with the entry here
             $('#information').html(
-                alertHtml("Successfully downloaded the file to " + entry.toURI()); 
+                alertHtml("Successfully downloaded the file to " + entry.toURI()) 
             );
             $('#button1').unbind();
             $('#button1').html("Display");
