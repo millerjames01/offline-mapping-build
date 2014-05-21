@@ -6,7 +6,20 @@ function go() {
 	$('#button1').click(loadDatabase);
 }
 
+function success(entries) {
+    var i;
+    for (i=0; i<entries.length; i++) {
+    console.log(entries[i].name);
+    }
+}
+
+function fail(error) {
+    alert("Failed to list directory contents: " + error.code);
+}
+
 function onSuccess(fs) {
+    var debugReader = fs.root.createReader();
+    debugReader.readEntries(success, fail)
     fs.root.getDirectory("databases", { create: true }, function(dataEntry) {
         var ft = new FileTransfer();
         ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
