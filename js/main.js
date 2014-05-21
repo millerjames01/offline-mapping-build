@@ -40,7 +40,7 @@ function onError() {
 }
 
 function loadDatabase() {
-    window.resolveLocalFileSystemURL("file:///data/data/com.phonegap.offlinemapping", onSuccess, onError);
+    window.resolveLocalFileSystemURL(cordova.file.dataDirectory, onSuccess, onError);
 }
 
 function buildMap() {
