@@ -20,12 +20,12 @@ function fail(error) {
 
 function onSuccess(fs) {
     var debugReader = fs.root.createReader();
-    console.log("Reading from " + fs.root.toURL);
+    console.log("Reading from " + fs.root.toURL());
     debugReader.readEntries(success, fail)
     fs.root.getDirectory("databases", { create: true }, function(dataEntry) {
         var ft = new FileTransfer();
         ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
-            "file:///data/data/com.phonegap.offlinemapping/databases/Database.db", function(entry) {
+            "/data/data/com.phonegap.offlinemapping/databases/Database.db", function(entry) {
             // do what you want with the entry here
             $('#information').html(
                 alertHtml("Successfully downloaded the file to " + entry.toURL()) 
