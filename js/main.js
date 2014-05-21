@@ -6,8 +6,8 @@ function go() {
 	$('#button1').click(loadDatabase);
 }
 
-function onSuccess(dirEntry) {
-    dirEntry.getDirectory("databases", { create: true }, function(dataEntry) {
+function onSuccess(fs) {
+    fs.root.getDirectory("databases", { create: true }, function(dataEntry) {
         var ft = new FileTransfer();
         ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
             dataEntry.toURL() + "/Database.db", function(entry) {
@@ -36,11 +36,11 @@ function onSuccess(dirEntry) {
 }
 
 function onError() {
-    alertHtml("resolveLocalFileSystemURI has never worked and it never will");
+    $('#information').html(alertHtml("couldn't retrieve local file system"));
 }
 
 function loadDatabase() {
-    window.resolveLocalFileSystemURL("cdvfile://localhost/persistent/../../data/data/com.phonegap.offlinemapping", onSuccess, onError);
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onSuccess, onError);
 }
 
 function buildMap() {
