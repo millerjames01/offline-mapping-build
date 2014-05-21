@@ -40,7 +40,7 @@ function onError() {
 }
 
 function loadDatabase() {
-    window.resolveLocalFileSystemURL("/data/data/com.phonegap.offlinemapping", onSuccess, onError);
+    window.resolveLocalFileSystemURL("cdvfile://localhost/persistent/data/data/com.phonegap.offlinemapping", onSuccess, onError);
 }
 
 function buildMap() {
