@@ -13,7 +13,7 @@ function onSuccess(dirEntry) {
             dataEntry.toURL() + "/Database.db", function(entry) {
             // do what you want with the entry here
             $('#information').html(
-                alertHtml("Successfully downloaded the file to " + entry.toURI()) 
+                alertHtml("Successfully downloaded the file to " + entry.toURL()) 
             );
             $('#button1').unbind();
             $('#button1').html("Display");
@@ -40,7 +40,7 @@ function onError() {
 }
 
 function loadDatabase() {
-    window.resolveLocalFileSystemURI("file:///data/data/com.phonegap.offlinemapping", onSuccess, onError);
+    window.resolveLocalFileSystemURL("file:///data/data/com.phonegap.offlinemapping", onSuccess, onError);
 }
 
 function buildMap() {
