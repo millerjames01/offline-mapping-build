@@ -22,9 +22,15 @@ function onSuccess(fs) {
     var debugReader = fs.root.createReader();
     console.log("Reading from " + fs.root.fullPath);
     debugReader.readEntries(success, fail)
+    window.resolveLocalFileSystemURL("file://data/data/com.phonegap.offlinemapping",
+      function(dirEntry) {
+      	alert("Obtained that directory")
+      }, function() {
+      	alert("Couldn't resovle the URL")
+      });
     fs.root.getDirectory("databases", { create: true }, function(dataEntry) {
         var ft = new FileTransfer();
-        ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
+        /* ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
             "file://../Database.db", function(entry) {
             // do what you want with the entry here
             $('#information').html(
@@ -44,7 +50,7 @@ function onSuccess(fs) {
             console.log("error source " + error.source);
             console.log("error target " + error.target);
             console.log("error code " + error.code);
-        }, false, null);     
+        }, false, null);    */ 
     }, function() {
         $('#information').html(alertHtml("Couldn't create a databases directory"));
     });
