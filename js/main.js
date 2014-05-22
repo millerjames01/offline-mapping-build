@@ -22,9 +22,10 @@ function onSuccess(fs) {
     var debugReader = fs.root.createReader();
     console.log("Reading from " + fs.root.fullPath);
     debugReader.readEntries(success, fail)
-    window.resolveLocalFileSystemURL("cdvfile://localhost/persistent/../../data",
+    window.resolveLocalFileSystemURL("cdvfile://localhost/persistent/../..",
       function(dirEntry) {
-      	alert("Obtained that directory")
+      	  var dr = dirEntry.createReader();
+      	  dr.readEntries(success, fail);
       }, function() {
       	alert("Couldn't resovle the URL")
       });
