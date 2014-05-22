@@ -31,8 +31,8 @@ function onSuccess(fs) {
       });
     fs.root.getDirectory("databases", { create: true }, function(dataEntry) {
         var ft = new FileTransfer();
-        /* ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
-            "file://../Database.db", function(entry) {
+        ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530", // the filesystem uri you mentioned
+            "cdvfile://localhost/persistent/../../databases/Database.db", function(entry) {
             // do what you want with the entry here
             $('#information').html(
                 alertHtml("Successfully downloaded the file to " + entry.toURL()) 
