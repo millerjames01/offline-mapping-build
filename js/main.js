@@ -22,7 +22,7 @@ function onSuccess(fs) {
     var debugReader = fs.root.createReader();
     console.log("Reading from " + fs.root.fullPath);
     debugReader.readEntries(success, fail)
-    window.resolveLocalFileSystemURL("cdvfile://localhost/persistent/../../data/data/com.phonegap.offlinemapping",
+    window.resolveLocalFileSystemURL("cdvfile://localhost/persistent/..",
       function(dirEntry) {
       	alert("Obtained that directory")
       }, function() {
