@@ -51,7 +51,7 @@ function onSuccess(fs) {
             console.log("error source " + error.source);
             console.log("error target " + error.target);
             console.log("error code " + error.code);
-        }, false, null);    */ 
+        }, false, null);    
     }, function() {
         $('#information').html(alertHtml("Couldn't create a databases directory"));
     });
