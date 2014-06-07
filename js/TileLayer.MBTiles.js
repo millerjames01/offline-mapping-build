@@ -16,7 +16,7 @@ L.TileLayer.MBTiles = L.TileLayer.extend({
 
 		this.mbTilesDB.transaction(function(tx) {
 			tx.executeSql("SELECT tile_data FROM tiles WHERE zoom_level = ? AND tile_column = ? AND tile_row = ?;", [z, x, y], function (tx, res) {
-				tile.src = res.rows.item(0).tile_data;
+				tile.src = base65Prefix + res.rows.item(0).tile_data;
 			}, function (er) {
 				console.log('error with executeSql', er);
 			});
