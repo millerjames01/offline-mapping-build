@@ -9,7 +9,7 @@ function go() {
 function onSuccess(fs) {
 	fs.root.getDirectory("databases", { create: true }, function(dataEntry) {
 		var ft = new FileTransfer();
-		ft.download("https://dl.dropboxusercontent.com/s/s6pxs03krkzzvba/Database.db?dl=1&token_hash=AAEqMLcQ5aI2rjRa9kKzRHWtMYj-9shVJLncIwXi47gP3w&expiry=1399898530",
+		ft.download("https://www.dropbox.com/meta_dl/eyJzdWJfcGF0aCI6ICIiLCAidGVzdF9saW5rIjogZmFsc2UsICJzZXJ2ZXIiOiAiZGwuZHJvcGJveHVzZXJjb250ZW50LmNvbSIsICJpdGVtX2lkIjogbnVsbCwgImlzX2RpciI6IGZhbHNlLCAidGtleSI6ICI3b2txaW5vZTJ1M2lwN2wifQ/AAPO8LlDbE-ogO4OW1OiI7c51Oal1SKJKwhcpXznsTd1Sg?dl=1",
 			"cdvfile://localhost/persistent/../../databases/Database.db", function(entry) {
 			$('#information').html(
 				alertHtml("Successfully downloaded the file to " + entry.toURL()) 
